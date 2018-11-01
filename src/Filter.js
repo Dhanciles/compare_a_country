@@ -114,19 +114,20 @@ class Filter extends Component {
             </button>
           </form>
           <div className="filtered-countries">
-            {this.state.filteredCountries.map(country => {
+            {this.state.filteredCountries.sort((a,b) => {
+              return a.population - b.population;
+            }).map((country,index) => {
               return (
                 <li className="country-list">
-                  {" "}
                   <span className="country-name"> {country.name} </span>
-                  population: {country.population}
+                  <span className = "data"> population: {country.population}  </span>
                 </li>
               );
             })}
           </div>
         </div>
         <div
-          className={this.state.selected === "GDP" ? "filter-class" : "hidden"}
+          className={this.state.selected === "GDP/Capita" ? "filter-class" : "hidden"}
         >
           <h3> Filter countries by GDP per capita </h3>
           <form onSubmit={this.filterGDP}>
@@ -149,13 +150,17 @@ class Filter extends Component {
             </button>
           </form>
           <div className="filtered-countries">
-            {this.state.filteredCountries.map(country => {
+            {this.state.filteredCountries.sort((a,b) => {
+              return a.GDP - b.GDP 
+            }).map(country => {
               return (
                 <li className="country-list">
                   <span className="country-name">
                     country: {country.name}
                   </span>
+                  <span className = "data">
                   GDP: ${country.GDP}/capita
+                  </span>
                 </li>
               );
             })}
@@ -164,56 +169,49 @@ class Filter extends Component {
         <div
           className={
             this.state.selected === "Continent" ? "filter-class" : "hidden"
-          }
-        >
+          }>
           <h3> Filter countries by continent </h3>
           <form>
             <button
               className="continent-button"
               name="Africa"
-              onClick={this.props.filterByContinent}
-            >
+              onClick={this.props.filterByContinent} >
               Africa
             </button>
             <button
               className="continent-button"
               name="Asia"
-              onClick={this.props.filterByContinent}
-            >
+              onClick={this.props.filterByContinent} >
               Asia
             </button>
             <button
               className="continent-button"
               name="North America"
-              onClick={this.props.filterByContinent}
-            >
+              onClick={this.props.filterByContinent} >
               North America
             </button>
             <button
               className="continent-button"
               name="South America"
-              onClick={this.props.filterByContinent}
-            >
+              onClick={this.props.filterByContinent} >
               South America
             </button>
             <button
               className="continent-button"
               name="Oceania"
-              onClick={this.props.filterByContinent}
-            >
+              onClick={this.props.filterByContinent} >
               Oceania
             </button>
             <button
               className="continent-button"
               name="Europe"
-              onClick={this.props.filterByContinent}
-            >
+              onClick={this.props.filterByContinent} >
               Europe
             </button>
           </form>
           <div className="filtered-countries">
             {this.props.filteredCountries.map(country => {
-              return <li className="country-list">{country} </li>;
+              return <button className="country" onClick={this.props.showCountry}> {country} </button>;
             })}
           </div>
         </div>

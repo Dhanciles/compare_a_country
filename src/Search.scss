@@ -31,11 +31,10 @@ button {
   margin: 10px;
   opacity: 1;
   transition: opacity 0.8s;
-}
-
-button:hover {
-  opacity: 0.6;
-  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.6;
+  }
 }
 
 nav {

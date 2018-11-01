@@ -22,53 +22,66 @@ nav li {
 }
 
 .filter-class {
+  background-color: $light-background;
+  height: 100vh;
+  overflow-y: scroll;
   padding-left: 20px;
   padding-right: 30px;
   position: absolute;
-  background-color: red;
-  z-index: 1;
-  top: 118px;
-  background-color: $light-background;
   right: 0;
-  width: 40%;
-  display: flex;
-  height: 100vh;
+  top: 118px;
   width: 36vw;
-  overflow-y: scroll;
-  display: flex;
-  flex-direction: column;
+  z-index: 1;
   form {
-    margin: 0px 20px 50px 0;
+    margin: 0px 20px 10px 0;
+  }
+  input {
+    width: 120px;
   }
   h3 {
-    @include display-flex(row);
-    height: 100px;
-    min-height: 100px;
+    height: 60px;
     width: 400px;
+    margin: 0;
   }
   button {
     font-size: .8rem;
     width: 90px;
     height: 40px;
   }
+  .country {
+    font-size: 1.2rem;
+    width: 80%;
+    justify-content: left;
+  }
 }
 
 .filtered-countries {
-  list-style: none;
-  width: 100%;
-  font-size: 1.3rem;
   display: block;
+  font-size: 1.3rem;
+  list-style: none;
   padding: 10px;
+  width: 100%;
   li {
     margin: 4px;
   }
 
   span {
     font-weight: bold;
-    margin: 16px;
-    margin-bottom: 40px;
+    margin: 8px;
   }
 }
+
+.country-list {
+ @include display-flex(row);
+ justify-content: space-between;
+ align-items: center;
+}
+
+.country {
+  @include display-flex(row);
+  background-color: unset;
+
+ }
 
 .filter-form {
   @include display-flex(row);
