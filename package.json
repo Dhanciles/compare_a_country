@@ -2,7 +2,7 @@
   "name": "compare_a_country",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://jamesb8891.github.io/compare_a_country",
+  "homepage": "http://colev1.github.io/compare_a_country",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.6",
     "node-sass": "^4.9.4",
