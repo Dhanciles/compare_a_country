@@ -23,7 +23,6 @@ class CardContainer extends Component {
           />
         );
       } else {
-        this.props.alertUser();
       }
     });
     return <div className="card-cont"> {cards} </div>;

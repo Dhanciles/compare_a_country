@@ -16,6 +16,7 @@ class App extends Component {
       displayCards: [],
       countriesMatchingFilter: [],
       showPopup: true,
+      showAlert: false,
       navigation: [
         {
           id: 0,
@@ -25,7 +26,7 @@ class App extends Component {
         },
         {
           id: 1,
-          title: "GDP",
+          title: "GDP/Capita",
           selected: false,
           key: "navigation"
         },
@@ -89,9 +90,10 @@ class App extends Component {
     }
   };
 
-  alertUser = () => {
-    console.log("That is not a country!");
-  };
+  showCountry = event => {
+    event.preventDefault();
+    this.findCountry(event.target.textContent.trim().toLowerCase());
+  }
 
   deleteCard = deletedCard => {
     const updatedCards = this.state.displayCards.filter(
@@ -157,6 +159,7 @@ class App extends Component {
               filterByContinent={this.filterByContinent}
               countriesMatchingFilter={this.state.countriesMatchingFilter}
               filteredCountries={this.state.countriesMatchingFilter}
+              showCountry={this.showCountry}
             />
           </header>
           <main className="App-main" />
@@ -180,6 +183,7 @@ class App extends Component {
               filterByContinent={this.filterByContinent}
               countriesMatchingFilter={this.state.countriesMatchingFilter}
               filteredCountries={this.state.countriesMatchingFilter}
+              showCountry={this.showCountry}
             />
           </header>
           <main className="App-main">
